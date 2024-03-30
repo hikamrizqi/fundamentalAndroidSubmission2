@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:id="@+id/item_user_id" >
+
+    <ImageView
+        android:id="@+id/profileUser"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:baselineAligned="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_dummy" />
+
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        tools:text="Username" />
+</LinearLayout>
