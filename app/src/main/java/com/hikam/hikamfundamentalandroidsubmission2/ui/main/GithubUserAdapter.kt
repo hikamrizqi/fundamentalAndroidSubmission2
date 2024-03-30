@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.hikam.hikamfundamentalandroidsubmission2.ui
+package com.hikam.hikamfundamentalandroidsubmission2.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.hikam.hikamfundamentalandroidsubmission2.data.response.ItemsItem
-import com.hikam.hikamfundamentalandroidsubmission2.databinding.ItemUserBinding
+import com.hikam.hikamfundamentalandroidsubmission2.databinding.ItemGithubUserBinding
 import jp.wasabeef.glide.transformations.CropCircleTransformation
 
-class UserAdapter(private val userList: List<ItemsItem?>) :
-    RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class GithubUserAdapter(private val userList: List<ItemsItem?>) :
+    RecyclerView.Adapter<GithubUserAdapter.ViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -21,7 +21,7 @@ class UserAdapter(private val userList: List<ItemsItem?>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemGithubUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -38,7 +38,7 @@ class UserAdapter(private val userList: List<ItemsItem?>) :
 
     override fun getItemCount() = userList.size
 
-    class ViewHolder(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: ItemGithubUserBinding) : RecyclerView.ViewHolder(binding.root)
 
     interface OnItemClickCallback {
         fun onItemClicked(data: ItemsItem?)

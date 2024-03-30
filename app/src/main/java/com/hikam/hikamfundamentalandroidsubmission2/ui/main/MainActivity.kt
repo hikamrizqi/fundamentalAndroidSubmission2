@@ -1,4 +1,4 @@
-package com.hikam.hikamfundamentalandroidsubmission2.ui
+package com.hikam.hikamfundamentalandroidsubmission2.ui.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,23 +12,41 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hikam.hikamfundamentalandroidsubmission2.R
 import com.hikam.hikamfundamentalandroidsubmission2.data.response.ItemsItem
 import com.hikam.hikamfundamentalandroidsubmission2.databinding.ActivityMainBinding
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.MainViewModel
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.SettingPreferenceViewModel
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.SettingPreferenceViewModelFactory
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.SettingPreferences
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.dataStore
+import com.hikam.hikamfundamentalandroidsubmission2.ui.detail.DetailUser
+import com.hikam.hikamfundamentalandroidsubmission2.ui.favorite.FavoriteGithubUserActivity
+import com.hikam.hikamfundamentalandroidsubmission2.ui.setting.SettingActivity
+import com.hikam.hikamfundamentalandroidsubmission2.ui.setting.SettingPreferenceViewModel
+import com.hikam.hikamfundamentalandroidsubmission2.ui.setting.SettingPreferenceViewModelFactory
+import com.hikam.hikamfundamentalandroidsubmission2.ui.setting.SettingPreferences
+import com.hikam.hikamfundamentalandroidsubmission2.ui.setting.dataStore
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
-    private lateinit var adapter: UserAdapter
     private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.searchBar.inflateMenu(R.menu.option_menu)
+        binding.searchBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.main_favorite -> {
+                    val intent = Intent(this, FavoriteGithubUserActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.main_theme_setting -> {
+                    val intent = Intent(this, SettingActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
 
         val preference = SettingPreferences.getInstance(application.dataStore)
         val preferenceViewModel = ViewModelProvider(this, SettingPreferenceViewModelFactory(preference))[SettingPreferenceViewModel::class.java]
@@ -55,26 +73,10 @@ class MainActivity : AppCompatActivity() {
                 }
         }
 
-        binding.searchBar.inflateMenu(R.menu.option_menu)
-        binding.searchBar.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.main_favorite -> {
-                    val intent = Intent(this, FavoriteUserActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.main_theme_setting -> {
-                    val intent = Intent(this, SettingActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                else -> false
-            }
-        }
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
 
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.rvMain.layoutManager = LinearLayoutManager(this)
 
         viewModel.userList.observe(this) { itemItem ->
             if (itemItem != null) {
@@ -85,13 +87,13 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
         progressBar.visibility = View.VISIBLE
-        viewModel.searchUsers("carissa")
+        viewModel.searchUsers("a")
     }
 
     private fun submitList(itemsItem: List<ItemsItem?>) {
-        val adapter = UserAdapter(itemsItem)
-        binding.recyclerView.adapter = adapter
-        adapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback{
+        val adapter = GithubUserAdapter(itemsItem)
+        binding.rvMain.adapter = adapter
+        adapter.setOnItemClickCallback(object : GithubUserAdapter.OnItemClickCallback {
             override fun onItemClicked(data: ItemsItem?) {
                 val intent = Intent(applicationContext, DetailUser::class.java)
                 intent.putExtra(DetailUser.DETAIL_USER, data)

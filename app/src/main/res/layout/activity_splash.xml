@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SplashActivity">
+    tools:context=".ui.main.SplashActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="120dp"
         android:layout_gravity="center"
-        android:src="@drawable/logo_github" />
+        android:src="@drawable/masuk_splash" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.DetailUser">
+    tools:context=".ui.detail.DetailUser">
 
     <!-- Loading Indicator -->
     <ProgressBar
@@ -25,8 +25,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center"
-        android:src="@drawable/image_dummy"
-        android:contentDescription="@string/contentdesc_imageuser"
+        android:src="@drawable/foto_profil"
+        android:contentDescription="@string/imageuser_desc"
         app:layout_constraintTop_toBottomOf="@id/progressBar"
         app:layout_constraintBottom_toTopOf="@id/username_detail"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +36,7 @@
         android:id="@+id/username_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:text="@string/username"
         app:layout_constraintTop_toBottomOf="@id/detail_profile"
@@ -49,26 +50,10 @@
         android:layout_marginBottom="10dp"
         android:text="@string/name"
         android:textStyle="italic"
-        android:textSize="12sp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/username_detail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linear_layout_follow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/name_detail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/num_follower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/num_follower"
-            android:layout_gravity="center_vertical" />
 
         <TextView
             android:id="@+id/follower_detail"
@@ -77,25 +62,44 @@
             android:layout_marginStart="10dp"
             android:textStyle="bold"
             android:text="@string/followers"
-            android:layout_gravity="center_vertical" />
-
-        <TextView
-            android:id="@+id/num_following"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/num_following"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="30dp" />
+            app:layout_constraintTop_toBottomOf="@id/name_detail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/following_detail"/>
 
         <TextView
             android:id="@+id/following_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:textStyle="bold"
+            android:layout_marginEnd="10dp"
             android:text="@string/following"
-            android:layout_gravity="center_vertical" />
-    </LinearLayout>
+            android:layout_gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/name_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/follower_detail"/>
+
+        <TextView
+            android:id="@+id/jumlah_follower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/num_follower"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/follower_detail"
+            app:layout_constraintStart_toStartOf="@id/follower_detail"
+            app:layout_constraintEnd_toEndOf="@id/follower_detail"/>
+
+
+        <TextView
+            android:id="@+id/jumlah_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/num_following"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/following_detail"
+            app:layout_constraintStart_toStartOf="@id/following_detail"
+            app:layout_constraintEnd_toEndOf="@id/following_detail"/>
+
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -103,9 +107,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear_layout_follow"
+        app:layout_constraintTop_toBottomOf="@+id/jumlah_follower"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/contentdesc_tablayout"/>
+        android:contentDescription="@string/tablayout_desc"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
@@ -120,9 +124,9 @@
         android:id="@+id/fav_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_favorite_border_24"
+        android:src="@drawable/iv_favorite_border"
         app:elevation="6dp"
-        android:contentDescription="@string/contentdesc_favorite"
+        android:contentDescription="@string/favorite_desc"
         app:layout_constraintBottom_toTopOf="@+id/share_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,9 +136,9 @@
         android:id="@+id/share_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_share_24"
+        android:src="@drawable/iv_share"
         app:elevation="6dp"
-        android:contentDescription="@string/contentdesc_share"
+        android:contentDescription="@string/share_desc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="16dp"

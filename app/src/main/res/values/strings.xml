@@ -1,12 +1,10 @@
 <resources>
     <string name="app_name">fundamental</string>
-
     <string name="searchbar_hint">Input Search</string>
     <string name="this_activity">Test</string>
-
-    <string name="tab_text_1">Follower</string>
-    <string name="tab_text_2">Following</string>
-    <string name="tab_text_3">Setting</string>
+    <string name="tab_layout_1">Follower</string>
+    <string name="tab_layout_2">Following</string>
+    <string name="tab_layout_3">Setting</string>
     <string name="content_tab_follower">Get Followers</string>
     <string name="content_tab_following">Get Followings</string>
     <string name="content_tab_text">This is Tab %1$d</string>
@@ -17,18 +15,18 @@
     <string name="num_follower">10</string>
     <string name="num_following">20</string>
     <string name="name">name_detail</string>
-    <string name="contentdesc_tablayout">tab layout</string>
-    <string name="contentdesc_imageuser">image user</string>
-    <string name="contentdesc_favorite">favorite</string>
-    <string name="contentdesc_share">share</string>
+    <string name="tablayout_desc">tab layout</string>
+    <string name="imageuser_desc">image user</string>
+    <string name="favorite_desc">favorite</string>
+    <string name="share_desc">share</string>
     <string name="favorite_users_icon">Favorite Users</string>
-    <string name="theme_changer">Setting</string>
+    <string name="mode_changer">Setting</string>
     <string name="undoFav">undo</string>
     <string name="removeFav">removed from favorite</string>
     <string name="addFav">added to favorite</string>
     <string name="seeFav">see favorite list</string>
     <string name="test_favorite_activity">this is FavoriteUserActivity</string>
     <string name="header_favorite_user">Favorite User</string>
-    <string name="share_message">Check out the profile of %s on our app! See also in: https://github.com/%1$s</string>
+    <string name="share_message">Coba cek akun github ini %s di aplikasimu! cek juga di: https://github.com/%1$s</string>
     <string name="share_via">Share via</string>
 </resources>

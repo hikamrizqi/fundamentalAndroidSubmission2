@@ -1,9 +1,10 @@
-package com.hikam.hikamfundamentalandroidsubmission2.viewmodel
+package com.hikam.hikamfundamentalandroidsubmission2.ui.setting
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
-class SettingPreferenceViewModelFactory(private val pref: SettingPreferences) : ViewModelProvider.NewInstanceFactory() {
+class SettingPreferenceViewModelFactory(private val pref: SettingPreferences) :
+    ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

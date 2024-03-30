@@ -1,9 +1,10 @@
-package com.hikam.hikamfundamentalandroidsubmission2.ui
+package com.hikam.hikamfundamentalandroidsubmission2.ui.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.hikam.hikamfundamentalandroidsubmission2.ui.follow.FollowFragment
 
 class SectionsPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
     var username: String = ""

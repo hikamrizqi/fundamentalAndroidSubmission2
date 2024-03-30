@@ -1,4 +1,4 @@
-package com.hikam.hikamfundamentalandroidsubmission2.ui
+package com.hikam.hikamfundamentalandroidsubmission2.ui.setting
 
 import android.os.Bundle
 import android.widget.CompoundButton
@@ -6,10 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.hikam.hikamfundamentalandroidsubmission2.databinding.ActivitySettingBinding
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.SettingPreferenceViewModel
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.SettingPreferenceViewModelFactory
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.SettingPreferences
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.dataStore
 
 class SettingActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingBinding
@@ -19,7 +15,7 @@ class SettingActivity : AppCompatActivity() {
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val switchTheme = binding.switchTheme
+        val switchTheme = binding.switchMode
 
         val pref = SettingPreferences.getInstance(application.dataStore)
         val settingPreferenceViewModel =

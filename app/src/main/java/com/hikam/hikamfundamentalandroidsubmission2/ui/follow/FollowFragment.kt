@@ -1,4 +1,4 @@
-package com.hikam.hikamfundamentalandroidsubmission2.ui
+package com.hikam.hikamfundamentalandroidsubmission2.ui.follow
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,15 +11,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hikam.hikamfundamentalandroidsubmission2.data.response.ItemsItem
 import com.hikam.hikamfundamentalandroidsubmission2.databinding.FragmentFollowBinding
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.FollowerViewModel
-import com.hikam.hikamfundamentalandroidsubmission2.viewmodel.FollowingViewModel
+import com.hikam.hikamfundamentalandroidsubmission2.ui.detail.DetailUser
+import com.hikam.hikamfundamentalandroidsubmission2.ui.main.GithubUserAdapter
 
 class FollowFragment : Fragment() {
     private lateinit var binding: FragmentFollowBinding
     private lateinit var progressBar: ProgressBar
     private lateinit var followerViewModel: FollowerViewModel
     private lateinit var followingViewModel: FollowingViewModel
-    private lateinit var adapter: UserAdapter
 
     companion object {
         const val ARG_POSITION = "position"
@@ -71,9 +70,9 @@ class FollowFragment : Fragment() {
     }
 
     private fun submitList(itemsItem: List<ItemsItem?>) {
-        val adapter = UserAdapter(itemsItem)
+        val adapter = GithubUserAdapter(itemsItem)
         binding.rvFollow.adapter = adapter
-        adapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback{
+        adapter.setOnItemClickCallback(object : GithubUserAdapter.OnItemClickCallback{
             override fun onItemClicked(data: ItemsItem?) {
                 val intent = Intent(requireActivity(), DetailUser::class.java)
                 intent.putExtra(DetailUser.DETAIL_USER, data)

@@ -4,12 +4,13 @@
     <group android:menuCategory="container">
         <item
             android:id="@+id/main_favorite"
-            android:icon="@drawable/baseline_favorite_24"
+            android:icon="@drawable/iv_favorite"
             android:title="@string/favorite_users_icon"
+            android:iconTint="@color/design_default_color_primary"
             app:showAsAction="ifRoom" />
         <item
             android:id="@+id/main_theme_setting"
-            android:title="@string/theme_changer"
+            android:title="@string/mode_changer"
             app:showAsAction="never" />
     </group>
 </menu>

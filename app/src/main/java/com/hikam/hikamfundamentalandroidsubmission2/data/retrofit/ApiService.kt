@@ -1,6 +1,6 @@
 package com.hikam.hikamfundamentalandroidsubmission2.data.retrofit
 
-import com.hikam.hikamfundamentalandroidsubmission2.data.response.DetailUserResponse
+import com.hikam.hikamfundamentalandroidsubmission2.data.response.DetailGithubUserResponse
 import com.hikam.hikamfundamentalandroidsubmission2.data.response.GithubResponse
 import com.hikam.hikamfundamentalandroidsubmission2.data.response.ItemsItem
 import retrofit2.Call
@@ -13,7 +13,7 @@ interface ApiService {
     ): Call<GithubResponse>
 
     @GET("users/{username}")
-    fun getDetailUser(@Path("username") username: String): Call<DetailUserResponse>
+    fun getDetailUser(@Path("username") username: String): Call<DetailGithubUserResponse>
 
     @GET("users/{username}/followers")
     fun getFollowers(@Path("username") username: String): Call<List<ItemsItem>>
