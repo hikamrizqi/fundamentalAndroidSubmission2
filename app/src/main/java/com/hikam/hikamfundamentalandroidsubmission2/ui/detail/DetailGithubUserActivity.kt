@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -32,7 +31,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 @Suppress("DEPRECATION")
-class DetailUser : AppCompatActivity() {
+class DetailGithubUserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailUserBinding
     private lateinit var favoriteGithubUserViewModel: FavoriteGithubUserViewModel
     private lateinit var favoriteUser: FavoriteGithubUserEntity
@@ -40,7 +39,7 @@ class DetailUser : AppCompatActivity() {
     private lateinit var username: String
     private val TAG_GITHUB_DETAIL_USER = "DetailGithubUser"
     private lateinit var favButton: FloatingActionButton
-    private lateinit var detailViewModel: DetailUserModel
+    private lateinit var detailViewModel: DetailGithubUserViewModel
     private var data: ItemsItem? = null
     private var isFavorite = false
 
@@ -52,7 +51,7 @@ class DetailUser : AppCompatActivity() {
         detailViewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
-        )[DetailUserModel::class.java]
+        )[DetailGithubUserViewModel::class.java]
         username = intent.getStringExtra("username") ?: ""
         fetchUserDetails(username)
 
@@ -79,8 +78,8 @@ class DetailUser : AppCompatActivity() {
         data = intent.parcelable(DETAIL_USER)
         favoriteUser = FavoriteGithubUserEntity()
 
-        favoriteAddUpdateViewModel = getViewModel(this@DetailUser)
-        favoriteGithubUserViewModel = getFavoriteViewModel(this@DetailUser)
+        favoriteAddUpdateViewModel = getViewModel(this@DetailGithubUserActivity)
+        favoriteGithubUserViewModel = getFavoriteViewModel(this@DetailGithubUserActivity)
 
         if (data != null) {
             data.let { data ->
@@ -114,7 +113,7 @@ class DetailUser : AppCompatActivity() {
         detailViewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
-        )[DetailUserModel::class.java]
+        )[DetailGithubUserViewModel::class.java]
         data?.login?.let { detailViewModel.searchUserDetail(it) }
         detailViewModel.detailUser.observe(this) { detailUser ->
             setItemsData(detailUser)

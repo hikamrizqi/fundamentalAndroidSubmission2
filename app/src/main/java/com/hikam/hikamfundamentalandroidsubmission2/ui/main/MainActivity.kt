@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hikam.hikamfundamentalandroidsubmission2.R
 import com.hikam.hikamfundamentalandroidsubmission2.data.response.ItemsItem
 import com.hikam.hikamfundamentalandroidsubmission2.databinding.ActivityMainBinding
-import com.hikam.hikamfundamentalandroidsubmission2.ui.detail.DetailUser
+import com.hikam.hikamfundamentalandroidsubmission2.ui.detail.DetailGithubUserActivity
 import com.hikam.hikamfundamentalandroidsubmission2.ui.favorite.FavoriteGithubUserActivity
 import com.hikam.hikamfundamentalandroidsubmission2.ui.setting.SettingActivity
 import com.hikam.hikamfundamentalandroidsubmission2.ui.setting.SettingPreferenceViewModel
@@ -95,8 +95,8 @@ class MainActivity : AppCompatActivity() {
         binding.rvMain.adapter = adapter
         adapter.setOnItemClickCallback(object : GithubUserAdapter.OnItemClickCallback {
             override fun onItemClicked(data: ItemsItem?) {
-                val intent = Intent(applicationContext, DetailUser::class.java)
-                intent.putExtra(DetailUser.DETAIL_USER, data)
+                val intent = Intent(applicationContext, DetailGithubUserActivity::class.java)
+                intent.putExtra(DetailGithubUserActivity.DETAIL_USER, data)
                 startActivity(intent)
             }
         })

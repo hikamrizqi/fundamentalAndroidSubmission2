@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hikam.hikamfundamentalandroidsubmission2.data.response.ItemsItem
 import com.hikam.hikamfundamentalandroidsubmission2.databinding.ActivityFavoriteUserBinding
-import com.hikam.hikamfundamentalandroidsubmission2.ui.detail.DetailUser
+import com.hikam.hikamfundamentalandroidsubmission2.ui.detail.DetailGithubUserActivity
 import com.hikam.hikamfundamentalandroidsubmission2.ui.main.GithubUserAdapter
 
 class FavoriteGithubUserActivity : AppCompatActivity() {
@@ -36,8 +36,8 @@ class FavoriteGithubUserActivity : AppCompatActivity() {
             binding.rvFavorite.adapter = adapter
             adapter.setOnItemClickCallback(object : GithubUserAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: ItemsItem?) {
-                    val intent = Intent(applicationContext, DetailUser::class.java)
-                    intent.putExtra(DetailUser.DETAIL_USER, data)
+                    val intent = Intent(applicationContext, DetailGithubUserActivity::class.java)
+                    intent.putExtra(DetailGithubUserActivity.DETAIL_USER, data)
                     startActivity(intent)
                 }
             })

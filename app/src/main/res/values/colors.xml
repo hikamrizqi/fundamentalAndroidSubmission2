@@ -3,14 +3,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primary_light">#114232</color>
-    <color name="primarycontainer_light">#87A922</color>
-    <color name="onprimarycontainer_light">#FCDC2A</color>
+    <color name="primary_light">#451952</color>
+    <color name="primarycontainer_light">#481E14</color>
+    <color name="onprimarycontainer_light">#5D0E41</color>
     <color name="secondary_light">#F7F6BB</color>
     <color name="secondarycontainer_light">#FFF67E</color>
     <color name="onsecondarycontainer_light">#BFEA7C</color>
-    <color name="tertiary_light">#9BCF53</color>
-    <color name="tertiarycontainer_light">#416D19</color>
+    <color name="tertiary_light">#662549</color>
+    <color name="tertiarycontainer_light">#F2613F</color>
     <color name="ontertiarycontainer_light">#FFF67E</color>
 
 

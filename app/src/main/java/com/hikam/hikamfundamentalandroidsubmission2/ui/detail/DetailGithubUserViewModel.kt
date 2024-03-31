@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailUserModel: ViewModel() {
+class DetailGithubUserViewModel: ViewModel() {
     private val _itemsItem = MutableLiveData<List<ItemsItem?>?>()
     val itemsItem: LiveData<List<ItemsItem?>?> = _itemsItem
 
